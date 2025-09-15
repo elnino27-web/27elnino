@@ -114,9 +114,11 @@
         #cb3359,
         #4acfee
       );
-      background-size: 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background-size: 200% auto; /* pastikan background-size lengkap */
+      color: transparent;          /* fallback warna teks */
+      background-clip: text;       /* standar CSS */
+      -webkit-background-clip: text; /* untuk Chrome & Safari */
+      -webkit-text-fill-color: transparent; /* untuk Chrome & Safari */
       animation: animate-gradient 2.5s linear infinite;
     }
 
@@ -173,9 +175,11 @@
         #cb3359,
         #4acfee
       );
-      background-size: 200%;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      background-size: 200% auto; /* pastikan background-size lengkap */
+      color: transparent;          /* fallback warna teks */
+      background-clip: text;       /* standar CSS */
+      -webkit-background-clip: text; /* untuk Chrome & Safari */
+      -webkit-text-fill-color: transparent; /* untuk Chrome & Safari */
       animation: animate-gradient 2.5s linear infinite;
     }
 
