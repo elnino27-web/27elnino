@@ -49,7 +49,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 0 40px;
+        padding: 15px 40px;
       }
 
       nav h1 {
@@ -65,17 +65,17 @@
       nav ul {
         list-style: none;
         display: flex;
-        gap: 10px;
+        gap: 15px;
       }
 
       nav ul li a {
         display: inline-block;
-        padding: 6px 14px;
+        padding: 8px 16px;
         border: 2px solid #4acfee;
-        border-radius: 15px;
+        border-radius: 20px;
         text-decoration: none;
         color: white;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: bold;
         transition: 0.3s ease;
       }
@@ -85,6 +85,32 @@
         background-color: #4acfee;
         color: #0e1217;
         box-shadow: 0 0 10px #4acfee;
+      }
+
+      /* Navbar responsive */
+      @media (max-width: 980px) {
+        nav {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        nav ul {
+          width: 100%;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+          background: rgba(14, 18, 23, 0.95);
+          padding: 15px;
+          border-radius: 15px;
+          box-shadow: 0 0 10px #4acfee;
+        }
+
+        nav ul li a {
+          width: 100%;
+          text-align: center;
+          font-size: 15px;
+          padding: 10px 0;
+        }
       }
 
       /* Hero Section */
