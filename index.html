@@ -12,49 +12,38 @@
       rel="stylesheet"
     />
     <style>
-      /* Reset dan Font */
+      /* Reset */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: "Poppins", Arial, sans-serif;
       }
 
       body {
         background-color: #0e1217;
-        margin: 0;
-        padding: 0;
-        min-height: 100vh; /* fleksibel */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .main-section {
-        width: 90%;
-        max-width: 1200px;
-        background-color: #4ad0ee1b;
-        backdrop-filter: blur(10px);
-        border-radius: 50px;
-        box-shadow: 5px 5px 20px 1px #4acfee;
+        color: white;
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
-        padding: 30px 20px;
-        margin: auto;
       }
 
       /* Navbar */
       nav {
+        width: 100%;
+        padding: 15px 40px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 15px 40px;
+        position: sticky;
+        top: 0;
+        background: rgba(14, 18, 23, 0.9);
+        backdrop-filter: blur(10px);
+        z-index: 1000;
       }
 
       nav h1 {
-        color: white;
-        font-size: 30px;
+        font-size: 28px;
         font-weight: 900;
       }
 
@@ -69,66 +58,62 @@
       }
 
       nav ul li a {
-        display: inline-block;
-        padding: 8px 16px;
-        border: 2px solid #4acfee;
-        border-radius: 20px;
         text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 20px;
+        border: 2px solid #4acfee;
         color: white;
-        font-size: 14px;
         font-weight: bold;
-        transition: 0.3s ease;
+        transition: 0.3s;
       }
 
       nav ul li a:hover,
       nav ul li a.active {
-        background-color: #4acfee;
+        background: #4acfee;
         color: #0e1217;
         box-shadow: 0 0 10px #4acfee;
       }
 
-      /* Navbar responsive */
-      @media (max-width: 980px) {
-        nav {
-          flex-direction: column;
-          gap: 15px;
-        }
-
-        nav ul {
-          width: 100%;
-          flex-direction: column;
-          align-items: center;
-          gap: 12px;
-          background: rgba(14, 18, 23, 0.95);
-          padding: 15px;
-          border-radius: 15px;
-          box-shadow: 0 0 10px #4acfee;
-        }
-
-        nav ul li a {
-          width: 100%;
-          text-align: center;
-          font-size: 15px;
-          padding: 10px 0;
-        }
+      /* Hamburger menu */
+      .menu-toggle {
+        display: none;
+        font-size: 28px;
+        color: white;
+        cursor: pointer;
       }
 
       /* Hero Section */
+      .main-section {
+        flex: 1;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 30px 20px;
+        background: rgba(74, 208, 238, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        box-shadow: 0 0 15px rgba(74, 207, 238, 0.4);
+      }
+
       .hero {
         display: flex;
-        align-items: flex-start;
-        padding: 50px 10%;
-        color: white;
         justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .hero-info {
+        flex: 1;
+        min-width: 280px;
       }
 
       .hero-info h1 {
-        font-size: 60px;
+        font-size: 48px;
+        margin-bottom: 10px;
       }
 
       .hero-info h2 {
-        margin-top: 20px;
-        font-size: 30px;
+        font-size: 26px;
         text-transform: uppercase;
         background: linear-gradient(
           to right,
@@ -147,54 +132,53 @@
         animation: animate-gradient 2.5s linear infinite;
       }
 
-      .hero-info p {
-        max-width: 450px;
-        margin-top: 7px;
-        margin-bottom: 20px;
-        text-align: justify;
-      }
-
       @keyframes animate-gradient {
         to {
           background-position: 200%;
         }
       }
 
+      .hero-info p {
+        margin: 15px 0;
+        line-height: 1.6;
+        text-align: justify;
+        max-width: 500px;
+      }
+
       /* Buttons */
       .Buttons {
         display: flex;
-        flex-wrap: wrap;
         align-items: center;
+        gap: 15px;
+        flex-wrap: wrap;
+        margin-top: 15px;
       }
 
       .btn {
         text-decoration: none;
         display: inline-block;
-        padding: 15px 30px;
+        padding: 12px 28px;
         background-color: #4acfee;
         border: 2px solid #4acfee;
         border-radius: 40px;
-        box-shadow: 0 0 10px #4acfee;
         font-size: 16px;
         font-weight: 900;
         color: #0e1217;
         cursor: pointer;
-        margin-right: 15px;
         transition: 0.3s;
-        white-space: nowrap;
       }
 
       .btn:hover {
         background-color: transparent;
-        box-shadow: none;
         color: #4acfee;
+        box-shadow: 0 0 10px #4acfee;
       }
 
       /* Social Icons */
       .ul-icons {
         display: flex;
         align-items: center;
-        margin-left: 10px;
+        gap: 12px;
       }
 
       .ul-icons li {
@@ -209,7 +193,6 @@
         font-size: 20px;
         color: #4acfee;
         text-decoration: none;
-        margin: 0 7px;
         transition: 0.3s;
       }
 
@@ -221,177 +204,102 @@
 
       /* Hero Image */
       .hero-img {
-        width: 300px;
+        flex: 1;
+        max-width: 300px;
         height: 300px;
         border-radius: 50%;
-        display: flex;
-        justify-content: center;
         overflow: hidden;
-        box-shadow: 0 0 10px #4eddfd;
-        transition: 0.5s;
-        margin-top: 30px;
-      }
-
-      .hero-img:hover {
-        box-shadow: 0 0 25px #4acfee;
+        box-shadow: 0 0 15px #4acfee;
+        transition: 0.4s;
       }
 
       .hero-img img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 50%;
+      }
+
+      .hero-img:hover {
+        box-shadow: 0 0 25px #4acfee;
+        transform: scale(1.05);
       }
 
       /* Responsive */
-      @media (max-width: 980px) {
-        nav {
-          flex-direction: column;
-          gap: 10px;
-        }
-
+      @media (max-width: 768px) {
         nav ul {
-          display: flex;
+          display: none;
           flex-direction: column;
-          align-items: center;
-          gap: 10px;
-          background: #0e1217;
-          padding: 10px;
+          background: rgba(14, 18, 23, 0.95);
+          position: absolute;
+          top: 60px;
+          right: 20px;
+          padding: 15px;
           border-radius: 10px;
+          box-shadow: 0 0 10px #4acfee;
         }
 
-        nav ul li a {
-          font-size: 14px;
-          width: 100%;
-          text-align: center;
+        nav ul.show {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: block;
         }
 
         .hero {
           flex-direction: column;
           text-align: center;
-          padding: 20px;
         }
 
         .hero-img {
-          width: 250px;
-          height: 250px;
-          margin: 20px auto;
+          margin-top: 20px;
+          max-width: 220px;
+          height: 220px;
         }
 
-        .Buttons {
-          flex-direction: column;
-          gap: 15px;
-        }
-      }
-
-      @media (max-width: 480px) {
-        nav h1 {
-          font-size: 22px;
-        }
         .hero-info h1 {
-          font-size: 28px;
+          font-size: 32px;
         }
+
         .hero-info h2 {
           font-size: 18px;
         }
-        .hero-info p {
-          font-size: 14px;
-          text-align: left;
-        }
-        .hero-img {
-          width: 180px;
-          height: 180px;
-        }
-        .btn {
-          font-size: 14px;
-          padding: 10px 20px;
-        }
       }
-
     </style>
   </head>
   <body>
-    <section class="main-section">
-      <!-- Navbar -->
-      <nav>
-        <h1 data-aos="zoom-in" data-aos-duration="1000">
-          <span>27</span>Elnino
-        </h1>
-        <ul>
-          <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-            <a class="active" href="index.html">Home</a>
-          </li>
-          <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-            <a href="about-me.html">About Me</a>
-          </li>
-          <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-            <a href="edu.html">Education</a>
-          </li>
-          <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
-            <a href="award.html">Award</a>
-          </li>
-          <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500">
-            <a href="gallery.html">Gallery</a>
-          </li>
-          <li data-aos="fade-up" data-aos-duration="1000" data-aos-delay="600">
-            <a href="contact.html">Contact</a>
-          </li>
-        </ul>
-      </nav>
+    <!-- Navbar -->
+    <nav>
+      <h1><span>27</span>Elnino</h1>
+      <ul>
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="about-me.html">About Me</a></li>
+        <li><a href="edu.html">Education</a></li>
+        <li><a href="award.html">Award</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="menu-toggle"><i class="bx bx-menu"></i></div>
+    </nav>
 
-      <!-- Hero Section -->
+    <!-- Hero Section -->
+    <section class="main-section">
       <div class="hero">
         <div class="hero-info">
-          <h1
-            data-aos="fade-right"
-            data-aos-duration="1000"
-            data-aos-delay="700"
-          >
-            Hi, Saya
-          </h1>
-          <h1
-            data-aos="fade-right"
-            data-aos-duration="1000"
-            data-aos-delay="700"
-          >
-            Washiatul Akmal
-          </h1>
-          <h2
-            data-aos="fade-left"
-            data-aos-duration="1000"
-            data-aos-delay="900"
-          >
-            Mahasiswa Informatika
-          </h2>
-          <p
-            style="font-style: justify"
-            data-aos="flip-down"
-            data-aos-duration="1000"
-            data-aos-delay="1000"
-          >
-            Selamat datang di website saya! Di sini Anda dapat menemukan
-            informasi tentang diri saya, pendidikan, minat, dan sosial media
-            saya. Selamat Berkenalan!!
+          <h1 data-aos="fade-right">Hi, Saya Washiatul Akmal</h1>
+          <h2 data-aos="fade-left" data-aos-delay="200">Mahasiswa Informatika</h2>
+          <p data-aos="fade-up" data-aos-delay="400">
+            Selamat datang di website portofolio saya!  
+            Di sini Anda dapat menemukan informasi tentang diri saya, pendidikan, minat, serta media sosial saya.  
+            Mari berkenalan lebih dekat!
           </p>
 
           <!-- Buttons -->
           <div class="Buttons">
-            <a
-              class="btn"
-              data-aos="zoom-in-right"
-              data-aos-duration="1000"
-              data-aos-delay="1100"
-            >
-              Follow Me
-            </a>
+            <a href="about-me.html" class="btn">Lihat Profil</a>
             <ul class="ul-icons">
               <li>
-                <a
-                  href="https://github.com/elnino27-web"
-                  target="_blank"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="1200"
+                <a href="https://github.com/elnino27-web" target="_blank"
                   ><i class="bx bxl-github"></i
                 ></a>
               </li>
@@ -399,29 +307,16 @@
                 <a
                   href="https://www.linkedin.com/in/washiatul-akmal-882495382/"
                   target="_blank"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="1300"
                   ><i class="bx bxl-linkedin"></i
                 ></a>
               </li>
               <li>
-                <a
-                  href="https://www.instagram.com/27_elnino/"
-                  target="_blank"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="1400"
+                <a href="https://www.instagram.com/27_elnino/" target="_blank"
                   ><i class="bx bxl-instagram"></i
                 ></a>
               </li>
               <li>
-                <a
-                  href="https://www.tiktok.com/@elnino.27"
-                  target="_blank"
-                  data-aos="fade-up"
-                  data-aos-duration="1000"
-                  data-aos-delay="1500"
+                <a href="https://www.tiktok.com/@elnino.27" target="_blank"
                   ><i class="bx bxl-tiktok"></i
                 ></a>
               </li>
@@ -430,8 +325,8 @@
         </div>
 
         <!-- Hero Image -->
-        <div class="hero-img" data-aos="zoom-in-left" data-aos-duration="2500">
-          <img src="fotoUtama.jpg" alt="person-img" />
+        <div class="hero-img" data-aos="zoom-in">
+          <img src="fotoUtama.jpg" alt="Foto Profil" />
         </div>
       </div>
     </section>
@@ -440,6 +335,13 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
       AOS.init();
+
+      // Toggle menu untuk HP
+      const menuToggle = document.querySelector(".menu-toggle");
+      const navUl = document.querySelector("nav ul");
+      menuToggle.addEventListener("click", () => {
+        navUl.classList.toggle("show");
+      });
     </script>
   </body>
 </html>
