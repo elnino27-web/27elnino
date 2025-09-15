@@ -251,6 +251,66 @@
           height: 350px;
         }
       }
+
+      /* Responsive tambahan khusus layar kecil */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .hero-info h1 {
+    font-size: 32px;
+  }
+  .hero-info h2 {
+    font-size: 22px;
+  }
+  .hero-info p {
+    font-size: 14px;
+    text-align: center;
+  }
+  .hero-img {
+    width: 250px;
+    height: 250px;
+    margin: 20px auto;
+  }
+  nav ul {
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+  .main-section {
+    height: auto; /* biar konten tidak kepotong */
+    padding: 15px;
+  }
+  nav h1 {
+    font-size: 22px;
+  }
+  .hero-info h1 {
+    font-size: 24px;
+  }
+  .hero-info h2 {
+    font-size: 18px;
+  }
+  .hero-info p {
+    font-size: 13px;
+    text-align: left;
+  }
+  .hero-img {
+    width: 200px;
+    height: 200px;
+  }
+  .btn {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}
+
     </style>
   </head>
   <body>
