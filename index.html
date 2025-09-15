@@ -24,7 +24,7 @@
         background-color: #0e1217;
         margin: 0;
         padding: 0;
-        min-height: 100vh; /* ganti height fix → min-height */
+        min-height: 100vh; /* fleksibel */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -219,6 +219,27 @@
 
       /* Responsive */
       @media (max-width: 980px) {
+        nav {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        nav ul {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 10px;
+          background: #0e1217;
+          padding: 10px;
+          border-radius: 10px;
+        }
+
+        nav ul li a {
+          font-size: 14px;
+          width: 100%;
+          text-align: center;
+        }
+
         .hero {
           flex-direction: column;
           text-align: center;
@@ -234,13 +255,6 @@
         .Buttons {
           flex-direction: column;
           gap: 15px;
-        }
-
-        nav ul {
-          flex-direction: column; /* tampilkan menu, tapi vertikal */
-          background: #0e1217;
-          padding: 10px;
-          border-radius: 10px;
         }
       }
 
